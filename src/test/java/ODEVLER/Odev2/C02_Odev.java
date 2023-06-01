@@ -1,6 +1,8 @@
-package Odev;
+package Odev2;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -13,7 +15,13 @@ public class C02_Odev {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         //Techproeducation sayfasina gidiniz
+        driver.get("https://techproeducation.com");
+
         //Cikan reklami locate edip kapatalim
+        WebElement reklam = driver.findElement(By.className("eicon-close"));
+
+
+
         //Arama bolumunde QA aratalim
         //Sayfa basliginin QA icerdigini dogrulayalim
         //Carrer Opportunities in QA linkinin gorunur oldugunu ve eriselebilir oldugunu dogrulayalim

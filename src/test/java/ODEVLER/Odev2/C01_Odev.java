@@ -1,4 +1,4 @@
-package Odev;
+package Odev2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
