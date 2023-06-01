@@ -43,7 +43,6 @@ public class C06 {
         }else System.out.println(driver.getCurrentUrl());
 
         //Sayfayi kapatin
-
         driver.close();
 
 }

@@ -1,4 +1,4 @@
-package Odev2;
+package ODEVLER.Odev2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,16 +10,6 @@ import java.time.Duration;
 public class C03_Odev {
         public static void main(String[] args) throws InterruptedException {
 
-
-            //https://id.heroku.com/login sayfasina gidin
-            //Bir mail adersi giriniz
-            //Bir password giriniz
-            //Login butonuna tiklayiniz
-            //"There was a problem with your login." texti gorunur ise
-            //"kayit yapilamadi" yazdiriniz
-            //eger yazi gorunur degilse "kayit yapildi" yazdiriniz
-            //sayfayı kapatiniz
-
             System.setProperty("webdriver.chrom.driver" , "src/resources/drivers/chromedriver.exe");
             WebDriver driver = new ChromeDriver();
             driver.manage().window().maximize();
@@ -29,30 +19,30 @@ public class C03_Odev {
             driver.get("https://id.heroku.com/login");
 
             //Bir mail adersi giriniz
-            WebElement mail = driver.findElement(By.id("email"));
-            mail.sendKeys("mehmet.fatihh57@gmail.com");
+            WebElement email = driver.findElement(By.xpath("//input[@class='form-control']"));
+            email.sendKeys("mehmet.fatihh57@gmail.com");
+            Thread.sleep(2000);
 
             //Bir password giriniz
-            WebElement password = driver.findElement(By.id("password"));
-            password.sendKeys("Sss230628.");
+            WebElement password = driver.findElement(By.xpath("//input[@class='form-control password']"));
+            password.sendKeys("MFY5757.");
+            Thread.sleep(2000);
 
             //Login butonuna tiklayiniz
-            WebElement login = driver.findElement(By.name("commit"));
+            WebElement login = driver.findElement(By.xpath("//button[@class='btn btn-primary btn-lg btn-block']"));
             login.click();
+            Thread.sleep(1000);
 
             //"There was a problem with your login." texti gorunur ise
             //"kayit yapilamadi" yazdiriniz
             //eger yazi gorunur degilse "kayit yapildi" yazdiriniz
-
-
-          String actualText = driver.getPageSource();
-          String expectedText = "There was a problem with your login";
-          if (actualText.contains(expectedText)){
-              System.out.println("Kayıt yapılamadı");
-          }else {
-              System.out.println("Kayıt yapıldı");
-          }
-          Thread.sleep(3000);
+            WebElement sonuc = driver.findElement(By.xpath("//div[@class='alert alert-danger']"));
+            System.out.println(sonuc.getText());
+            if(!sonuc.isDisplayed()){
+                System.out.println("Kayit Yapildi");
+            }else{
+                System.out.println("Kayit Yapilamadi");
+            }
 
             //sayfayı kapatiniz
             driver.close();
