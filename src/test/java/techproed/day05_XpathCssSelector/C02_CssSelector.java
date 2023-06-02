@@ -56,8 +56,5 @@ public class C02_CssSelector {
         //Sayfayi Kapatiniz
         driver.close();
 
-
-
-
     }
 }
